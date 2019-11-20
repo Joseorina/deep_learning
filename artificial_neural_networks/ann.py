@@ -81,15 +81,3 @@ variance = accuracies.std()
 
 
 # Tuning The ANN
-
-from keras.wrappers.scikit_learn import KerasClassifier
-from sklearn.model_selection import cross_val_score
-def build_classifier():
-    classifier = Sequential()
-    classifier.add(Dense(output_dim = 6, init='uniform',activation='relu', input_dim=11))
-    classifier.add(Dense(output_dim=6, init='uniform',activation='relu'))
-    classifier.add(Dense(output_dim =1, init='uniform',activation='sigmoid'))
-    classifier.compile(optimizer='adam', loss ='binary_crossentropy', metrics=['accuracy'])
-    return classifier
-classifier = KerasClassifier(build_fn=build_classifier, batch_size = 10, nb_epoch = 100)
-accuracies = cross_val_score(estimator=classifier, X = X_train, y = y_train, cv = 10, n_jobs = -1)
