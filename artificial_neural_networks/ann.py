@@ -61,6 +61,8 @@ new_prediction = (new_prediction > 0.5)
 # Part 4: Evaluating imprtoving and Tuning the ANN
 
 # Evaluating the ANN
+
+
 from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.model_selection import cross_val_score
 def build_classifier():
@@ -76,3 +78,6 @@ mean = accuracies.mean()
 variance = accuracies.std()
 
 # Improving the ANN
+
+
+# Tuning The ANN
