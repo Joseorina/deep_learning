@@ -32,3 +32,23 @@ from keras.models import Sequential
 from keras.layers import Dense
 
 classifier = Sequential()
+
+classifier.add(Dense(output_dim = 6, init='uniform',activation='relu', input_dim=11))
+
+classifier.add(Dense(output_dim=6, init='uniform',activation='relu'))
+
+classifier.add(Dense(output_dim =1, init='uniform',activation='sigmoid'))
+
+classifier.compile(optimizer='adam', loss ='binary_crossentropy', metrics=['accuracy'])
+
+classifier.fit(X_train, y_train, batch_size = 10, nb_epoch=100)
+
+y_pred = classifier.predict(X_test)
+y_pred =(y_pred > 0.5)
+
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
+
+# Predicting a new observation
+new_prediction = classifier.predict(sc.transform(np.array([[0.0,0,600,1,40,3,60000,2,1,1,50000]])))
+new_prediction = (new_prediction > 0.5)
