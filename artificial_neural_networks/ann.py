@@ -54,4 +54,15 @@ new_prediction = classifier.predict(sc.transform(np.array([[0.0,0,600,1,40,3,600
 new_prediction = (new_prediction > 0.5)
 
 # Part 4: Evaluating imprtoving and Tuning the ANN
-# Evaluating
+
+# Evaluating the ANN
+from keras.wrappers.scikit_learn import KerasClassifier
+from sklearn.model_selection import cross_val_score
+def build_classifier():
+    classifier = Sequential()
+    classifier.add(Dense(output_dim = 6, init='uniform',activation='relu', input_dim=11))
+    classifier.add(Dense(output_dim=6, init='uniform',activation='relu'))
+    classifier.add(Dense(output_dim =1, init='uniform',activation='sigmoid'))
+    classifier.compile(optimizer='adam', loss ='binary_crossentropy', metrics=['accuracy'])
+    return classifier
+    
