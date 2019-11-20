@@ -65,4 +65,9 @@ def build_classifier():
     classifier.add(Dense(output_dim =1, init='uniform',activation='sigmoid'))
     classifier.compile(optimizer='adam', loss ='binary_crossentropy', metrics=['accuracy'])
     return classifier
-    
+classifier = KerasClassifier(build_fn=build_classifier, batch_size = 10, nb_epoch = 100)
+accuracies = cross_val_score(estimator=classifier, X = X_train, y = y_train, cv = 10, n_jobs = -1)
+mean = accuracies.mean()
+variance = accuracies.std()
+
+# Improving the ANN
