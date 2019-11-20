@@ -30,12 +30,17 @@ X_test = sc.transform(X_test)
 # Making the ANN
 from keras.models import Sequential
 from keras.layers import Dense
+from keras.layers import Dropout
 
 classifier = Sequential()
 
+# Adding the inpout layer and the first hidden layer with dropout
 classifier.add(Dense(output_dim = 6, init='uniform',activation='relu', input_dim=11))
+classifier.add(Dropout(p=0.1))
 
+# Adding the second hidden layer
 classifier.add(Dense(output_dim=6, init='uniform',activation='relu'))
+classifier.add(Dropout(p=0.1))
 
 classifier.add(Dense(output_dim =1, init='uniform',activation='sigmoid'))
 
