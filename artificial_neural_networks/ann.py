@@ -81,3 +81,14 @@ variance = accuracies.std()
 
 
 # Tuning The ANN
+from keras.wrappers.scikit_learn import KerasClassifier
+from sklearn.model_selection import GridSearchCV
+from keras.models import Sequential
+from keras.layers import Dense
+def build_classifier():
+    classifier = Sequential()
+    classifier.add(Dense(output_dim = 6, init='uniform',activation='relu', input_dim=11))
+    classifier.add(Dense(output_dim=6, init='uniform',activation='relu'))
+    classifier.add(Dense(output_dim =1, init='uniform',activation='sigmoid'))
+    classifier.compile(optimizer='adam', loss ='binary_crossentropy', metrics=['accuracy'])
+    return classifier
