@@ -25,6 +25,12 @@ X_train, y_train = np.array(X_train), np.array(y_train)
 # Reshaping
 X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))
 
+
+
 # Part 2 : BUilding the RNN
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.layer import LSTM
+from keras.layer import Dropout
 
 #Part 3 :  MAking the predictions and visualizing the results
