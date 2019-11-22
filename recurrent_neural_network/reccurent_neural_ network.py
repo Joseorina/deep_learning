@@ -30,7 +30,16 @@ X_train = np.reshape(X_train, (X_train.shape[0], X_train.shape[1], 1))
 # Part 2 : BUilding the RNN
 from keras.models import Sequential
 from keras.layers import Dense
-from keras.layer import LSTM
-from keras.layer import Dropout
+from keras.layers import LSTM
+from keras.layers import Dropout
+
+# Initializing the RNN
+regressor = Sequential()
+
+# Adding the first LSTN and some Dropout regularisation
+regressor.add(LSTM(units=50, return_sequences=True, input_shape =(X_train.shape[1], 1)))
+regressor.add(Dropout(0.2))
+
+# Adding the second LSTN and some Dropout regularisation
 
 #Part 3 :  MAking the predictions and visualizing the results
