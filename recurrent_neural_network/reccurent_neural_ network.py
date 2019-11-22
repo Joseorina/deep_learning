@@ -44,8 +44,9 @@ regressor.add(Dropout(0.2))
 regressor.add(LSTM(units=50, return_sequences=True))
 regressor.add(Dropout(0.2))
 
-
 # Adding the third LSTN and some Dropout regularisation
+regressor.add(LSTM(units=50, return_sequences=True))
+regressor.add(Dropout(0.2))
 
 
 # Adding the fourth LSTN and some Dropout regularisation
