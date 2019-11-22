@@ -55,7 +55,10 @@ regressor.add(Dropout(0.2))
 # Adding the output layer
 regressor.add(Dense(units=1))
 
-# COmpiling the RNN
+# Compiling the RNN
 regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
+
+# Fitting the RNN ato the traiing set
+regressor.fit(X_train, y_train, epochs=100, batch_size=32)
 
 #Part 3 :  MAking the predictions and visualizing the results
