@@ -56,3 +56,5 @@ classifier.fit_generator(training_set,
                         epochs=25,
                         validation_data=test_set,
                         validation_steps=2000)
+
+# Part 3 : Making single predictions
