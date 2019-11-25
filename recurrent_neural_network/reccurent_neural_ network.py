@@ -61,4 +61,12 @@ regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
 # Fitting the RNN ato the traiing set
 regressor.fit(X_train, y_train, epochs=100, batch_size=32)
 
-#Part 3 :  MAking the predictions and visualizing the results
+#Part 3 :  Making the predictions and visualizing the results
+
+# Getting the stockprice of 2017
+dataset_test = pd.read_csv('Google_Stock_Price_Test.csv')
+real_Srock_price = dataset_test.iloc[:, 1:2].values
+
+# Getting the predicted stock price of 2017
+dataset_total = pd.concat((dataset_train['Open'], dataset_test['Open']), axis = 0)
+inputs = dataset_total(len(dataset_total) - len(dataset_test) - 60:].values
